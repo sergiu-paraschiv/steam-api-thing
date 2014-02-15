@@ -1,0 +1,31 @@
+{
+  "name": "steam-api-thing",
+  "version": "0.0.1",
+  "author": {
+    "name": "Sergiu Paraschiv"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sergiu-paraschiv/steam-api-thing.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "bower": "~1.2.8",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-cucumber": "~0.2.3",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-connect": "~0.6.0",
+    "grunt-open": "~0.2.3",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-usemin": "~2.0.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-cssmin": "~0.7.0",
+    "grunt-angular-templates": "~0.5.1",
+    "grunt-replace": "~0.6.2"
+  },
+  "engines": {
+    "node": "~>0.10.5",
+    "npm": "~>1.2.18"
+  }
+}

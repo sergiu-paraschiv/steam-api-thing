@@ -1,0 +1,9 @@
+{
+  "name": "steam-api-thing",
+  "version": "0.1",
+  "dependencies": {
+    "angular": "~1.2.10",
+    "angular-route": "~1.2.10",
+    "lodash": "~2.4.1"
+  }
+}

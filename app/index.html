@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Steam API Thing</title>
+        
+        <!-- build:css styles/main.css -->
+        <link href="/styles/main.css" rel="stylesheet" />
+        <!-- endbuild -->
+        
+        <!-- build:js scripts/lib.js -->
+        <script src="/components/lodash/dist/lodash.js"></script>
+        <script src="/components/angular/angular.js"></script>
+        <script src="/components/angular-route/angular-route.js"></script>
+        <!-- endbuild -->
+        
+        <!-- build:js scripts/app.js -->
+        <script src="/scripts/App.js"></script>
+        <!-- endbuild -->
+        
+        <!-- build:js scripts/config.js -->
+        <script src="/config/SteamAPI.js"></script>
+        <!-- endbuild -->
+        
+        <!-- build:js scripts/scripts.js -->
+        <script src="/scripts/modules/Main.js"></script>
+        <!-- endbuild -->
+
+    </head>
+    
+    <body ng-app="SteamAPIThing">
+        <div ng-view></div>
+    </body>
+    
+</html>
