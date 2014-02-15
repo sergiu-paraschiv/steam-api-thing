@@ -1,6 +1,8 @@
-(function(undefined) {
+(function(extend, undefined) {
     'use strict';
     
-    this.SAT = {};
+    this.sat = {};
+    
+    extend.myNamespace(this.sat);
 
-}).call(this);
+}).call(this, extend);

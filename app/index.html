@@ -8,21 +8,37 @@
         <!-- endbuild -->
         
         <!-- build:js scripts/lib.js -->
-        <script src="/components/lodash/dist/lodash.js"></script>
-        <script src="/components/angular/angular.js"></script>
-        <script src="/components/angular-route/angular-route.js"></script>
+        <script src="components/lodash/dist/lodash.js"></script>
+        <script src="components/extend.js/index.js"></script>
+        <script src="components/angular/angular.js"></script>
+        <script src="components/angular-route/angular-route.js"></script>
         <!-- endbuild -->
         
         <!-- build:js scripts/app.js -->
-        <script src="/scripts/App.js"></script>
+        <script src="scripts/App.js"></script>
         <!-- endbuild -->
         
         <!-- build:js scripts/config.js -->
-        <script src="/config/SteamAPI.js"></script>
+        <script src="config/Config.js"></script>
+        <script src="config/SteamAPI.js"></script>
         <!-- endbuild -->
         
         <!-- build:js scripts/scripts.js -->
-        <script src="/scripts/modules/Main.js"></script>
+        <script src="scripts/modules/SteamAPIThing.js"></script>
+        
+        <script src="scripts/models/Account.js"></script>
+        <script src="scripts/models/Game.js"></script>
+        
+        <script src="scripts/mappers/GamesMapper.js"></script>
+        
+        <script src="scripts/services/AuthorizationService.js"></script>
+        <script src="scripts/services/AccountService.js"></script>
+        <script src="scripts/services/ProxyService.js"></script>
+        <script src="scripts/services/GamesService.js"></script>
+        
+        <script src="scripts/controllers/AuthorizationController.js"></script>
+        <script src="scripts/controllers/AuthorizationResponseController.js"></script>
+        <script src="scripts/controllers/GamesListController.js"></script>
         <!-- endbuild -->
 
     </head>

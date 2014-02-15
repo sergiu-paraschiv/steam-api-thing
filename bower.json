@@ -4,6 +4,7 @@
   "dependencies": {
     "angular": "~1.2.10",
     "angular-route": "~1.2.10",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "extend.js": "https://github.com/searls/extend.js/releases/download/0.1.0/extend.js"
   }
 }

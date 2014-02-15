@@ -7,24 +7,16 @@ module.exports = function(grunt) {
             all: ['app/scripts/**/*.js', 'app/config/**/*.js']
         },
         
-        cucumberjs: {
-            src: 'tests/features',
-            options: {
-                steps: 'tests/steps'
-            }
+        jasmine: {
+            all: ['tests/unit/**/*.js']
         },
         
         watch: {
             test: {
                 files: ['app/scripts/**/*.js', 'tests/steps/**/*.js'],
-                tasks: ['jshint', 'cucumberjs']
+                tasks: ['jshint', 'jasmine']
             },
-            
-            config: {
-                files: ['config/**/*.js'],
-                tasks: ['replace']
-            },
-            
+
             server: {
                 options: {
                     livereload: true
@@ -37,7 +29,7 @@ module.exports = function(grunt) {
             server: {
                 options: {
                     port: 9001,
-                    base: 'app'
+                    base: 'app',
                 }
             }
         },
@@ -101,6 +93,12 @@ module.exports = function(grunt) {
                     { expand: true, flatten: true, src: ['app/images/*'], dest: 'build/images/' },
                     { expand: true, flatten: true, src: ['.tmp/concat/scripts/*'], dest: 'build/scripts/' }
                 ]
+            },
+            
+            beforeReplace: {
+                files: [
+                    { expand: true, flatten: true, src: ['config/*'], dest: 'app/config/' }
+                ]
             }
         },
         
@@ -110,7 +108,7 @@ module.exports = function(grunt) {
                     patterns: grunt.file.readJSON('.constants')
                 },
                 files: [
-                    {expand: true, flatten: true, src: ['config/**/*.js'], dest: 'app/config/'}
+                    {expand: true, flatten: true, src: ['app/config/*'], dest: 'app/config/'}
                 ]
             }
         }
@@ -118,7 +116,7 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-cucumber');
+    grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-open');
@@ -132,10 +130,11 @@ module.exports = function(grunt) {
     
     grunt.registerTask('test', [
         'jshint',
-        'cucumberjs'
+        'jasmine'
     ]);
-    
+
     grunt.registerTask('dev-server', [
+        'copy:beforeReplace',
         'replace',
         'connect:server',
         'open:server',
@@ -149,6 +148,7 @@ module.exports = function(grunt) {
     grunt.registerTask('build', [
         'clean:beforeBuild',
         'copy:beforeBuild',
+        'copy:beforeReplace',
         'replace',
         'useminPrepare',
         'usemin',
