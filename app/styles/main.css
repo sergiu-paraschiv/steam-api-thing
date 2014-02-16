@@ -1,3 +1,97 @@
 body {
-    color: red;
 }
+
+h1 {
+    text-align: left;
+}
+
+.games {
+}
+
+    .games .game {
+        cursor: default;
+        width: 292px;
+        height: 136px;
+        display: inline-block;
+        overflow: hidden;
+        position: relative;
+        margin: 10px;
+        
+        transform-style: preserve-3d;
+        transition: all 1s linear;
+        -webkit-transform-style: preserve-3d;
+        -webkit-transition: all 1s linear;
+    }
+    
+    .games .game .background {
+        background-color: #000;
+        width: 292px;
+        height: 136px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+    }
+    
+    .games .game .title {
+        position: absolute;
+        margin: 0 4px 0 0;
+        padding: 0;
+        bottom: 4px;
+        left: 4px;
+        font-size: 12px;
+        color: #fff; 
+        opacity: 0.6;
+        font-weight: 500;
+        line-height: 1.1;
+        z-index: 20;
+    }
+    
+    .games .game .icon {
+        position: absolute;
+        z-index: 30;
+        top: 10px;
+        right: 10px;
+        opacity: 0.3;
+    }
+    
+    .games .game .actions {
+        position: relative;
+        z-index: 40;
+        margin-left: 10px;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #FFF;
+        opacity: 0.7;
+    }
+    
+        .games .game .actions a {
+            text-decoration: none;
+        }
+    
+    .games .game .face {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transition: 0.3s linear all;
+        transition: 0.3s linear all;
+    }
+    
+    .games .game .face.back {
+        -webkit-transform: perspective(800px) rotateX(0deg) rotateY(-180deg) translateZ(0px);
+        transform: perspective(800px) rotateX(0deg) rotateY(-180deg) translateZ(0px);
+    }
+    
+    .games .game.flipped .face.front {
+        -webkit-transform: perspective(800px) rotateX(0deg) rotateY(180deg) translateZ(0px);
+        transform: perspective(800px) rotateX(0deg) rotateY(180deg) translateZ(0px);
+    }
+    
+    .games .game.flipped .face.back {
+        -webkit-transform: perspective(800px) rotateX(0deg) rotateY(0deg) translateZ(0px);
+        transform: perspective(800px) rotateX(0deg) rotateY(0deg) translateZ(0px);
+    }

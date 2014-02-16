@@ -16,7 +16,9 @@
         
         url: 'http://api.steampowered.com/',
         key: '@@steam_api_key',
-        proxy: 'http://localhost:9002/?url={url}'
+        proxy: 'http://localhost:9002/proxy/?url={url}',
+        nativeProxy: 'http://localhost:9002/proxy/?url={url}&mode=native',
+        runGameUrl: 'steam://run/'
     };
     
     this.extend('sat.Config.SteamAPI', SteamAPI);

@@ -1,0 +1,11 @@
+<a href="/#/signout">Sign Out</a>
+
+<div class="col-md-9">
+    <h1>Lease offers for <em>{{game.name}}</em></h1>
+
+    <div class="offers">
+        <offer ng-repeat="offer in offers | orderBy:offerAmount"
+            data-info="offer"
+        ></offer>
+    </div>
+</div>

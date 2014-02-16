@@ -7,10 +7,17 @@
         function($http) {
             var config = sat.Config.SteamAPI;
             
-            function get(url, successCallback, errorCallback) {
-                var proxiedUrl = config.proxy.replace('{url}', encodeURIComponent(url));
+            function proxiedURL(url, isNative) {
+                var newURL = config.proxy;
+                if(isNative) {
+                    newURL = config.nativeProxy;
+                }
                 
-                $http.get(proxiedUrl).success(function(response) {
+                return newURL.replace('{url}', encodeURIComponent(url));
+            }
+            
+            function get(url, successCallback, errorCallback) {
+                $http.get(proxiedURL(url)).success(function(response) {
                     if(response.status.http_code === 200) {
                         successCallback.call(undefined, response.contents);
                     }
@@ -21,7 +28,8 @@
             }
             
             return {
-                get: get
+                get: get,
+                proxiedURL: proxiedURL
             };
         }
     ]);

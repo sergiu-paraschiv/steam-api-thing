@@ -1,0 +1,19 @@
+<div class="game metro-tile" ng-click="flip()">
+    {{rgb}}
+    <div class="front face">
+        <h2 class="title">{{game.name}}</h2>
+        <img class="background" ng-src="{{getBackground()}}" alt= "" />
+    </div>
+    
+    <div class="back face">
+        <div class="title">{{game.name}}</div>
+        <div class="background">&nbsp;</div>
+        <img class="icon" ng-src="http://media.steampowered.com/steamcommunity/public/images/apps/{{game.id}}/{{game.icon}}.jpg" alt= "" />
+        
+        <div class="actions">
+            <div>Time played: {{game.playTime / 60 | number:0}}h</div>
+            <a ng-show="offers.length > 0" href="/#/game/{{game.id}}/offers"><em>{{offers.length}}</em> active offers</a>
+            <a href="/#/add-offer/{{game.id}}">Add lease offer</a>
+        </div>
+    </div>
+</div>

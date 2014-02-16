@@ -2,7 +2,8 @@
     'use strict';
    
     var module = ng.module('SteamAPIThing', [
-        'ngRoute'
+        'ngRoute',
+        'ngStorage'
     ]);
     
     module.config([
@@ -20,9 +21,21 @@
                     templateUrl: 'views/authorize.html',
                     controller: 'AuthorizationResponseController'
                 })
+                .when('/signout', {
+                    templateUrl: 'views/authorize.html',
+                    controller: 'SignOutController'
+                })
                 .when('/games', {
                     templateUrl: 'views/games.html',
                     controller: 'GamesListController'
+                })
+                .when('/add-offer/:gameId', {
+                    templateUrl: 'views/addoffer.html',
+                    controller: 'AddGameLeaseOfferController'
+                })
+                .when('/game/:gameId/offers', {
+                    templateUrl: 'views/offers.html',
+                    controller: 'GameLeaseOffersController'
                 })
                 .otherwise({
                     redirectTo: '/'

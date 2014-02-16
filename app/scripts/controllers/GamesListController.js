@@ -1,21 +1,41 @@
 (function(undefined) {
     'use strict';
     
-    this.sat.SteamAPIThing.controller('GamesListController', [
+    var replaceArray = sat.Utils.Array.replace;
+    
+    sat.SteamAPIThing.controller('GamesListController', [
         '$scope',
+        'TitleService',
         'AccountService',
         'GamesService',
-        
-        function($scope, accountService, gamesService) {
-            var account = accountService.getAccount();
-            
-            $scope.games = [];
-            
-            gamesService.getOwnedGames(account.id, function(games) {
+        'LeaseService',
 
-                $scope.games.splice(0, $scope.games.length);
-                $scope.games = $scope.games.concat(games);
+        function($scope, titleService, accountService, gamesService, leaseService) {
+            titleService.set([sat.Config.pageTitles.myGames]);
+            
+            $scope.games = gamesService.getOwnedGames();
+           
+            gamesService.refreshOwnedGames(accountService.getAccount().id, function(games) {
+                $scope.games = replaceArray($scope.games, games);
             });
+            
+            $scope.activeOffers = function(game) {
+                var offers = leaseService.getGameOffers(game.id);
+                
+                if(offers.length > 0) {
+                    return true;
+                }
+                
+                return false;
+            };
+            
+            $scope.noActiveOffers = function(game) {
+                return !$scope.activeOffers(game);
+            };
+            
+            $scope.playTime = function(game) {
+                return 1 / parseFloat(game.playTime);
+            };
         }
     ]);
         

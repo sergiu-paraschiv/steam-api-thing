@@ -11,13 +11,15 @@
             game.id = data.appid;
             game.name = data.name;
             game.icon = data.img_icon_url;
-            game.logo = data.img_logo_url ;
+            game.logo = data.img_logo_url;
             game.playTime = data.playtime_forever;
             
             return game;
         }
                 
         function map(data) {
+            data = _.filter(data, 'img_logo_url');
+            
             return _.map(data, mapOne);
         }
 

@@ -1,10 +1,10 @@
-(function(window, undefined) {
+(function(undefined) {
     'use strict';
 
     sat.SteamAPIThing.factory('AuthorizationService', [
-        '$location',
+        '$window',
         
-        function($location) {
+        function($window) {
             var config = sat.Config.SteamAPI.authorization;
             
             function authorizationURL() {
@@ -25,18 +25,13 @@
             function authorize() {
                 var url = authorizationURL();
                 
-                window.location = url;
-            }
-            
-            function getIdentity() {
-                return $location.search()[config.identity_param];
+                $window.location = url;
             }
             
             return {
-                authorize: authorize,
-                getIdentity: getIdentity
+                authorize: authorize
             };
         }
     ]);
         
-}).call(this, window);
+}).call(this);

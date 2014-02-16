@@ -1,11 +1,22 @@
 (function(undefined) {
     'use strict';
     
-    this.sat.SteamAPIThing.controller('AuthorizationController', [
+    sat.SteamAPIThing.controller('AuthorizationController', [
         '$scope',
+        '$location',
+        'TitleService',
+        'AccountService',
         'AuthorizationService',
         
-        function($scope, authorizationService) {
+        function($scope, $location, titleService, accountService, authorizationService) {
+            titleService.set([sat.Config.pageTitles.authorization]);
+            
+            var account = accountService.check();
+            
+            if(account.id) {
+                $location.url('/games').replace();
+            }
+            
             $scope.authorize = function() {
                 authorizationService.authorize();
             };

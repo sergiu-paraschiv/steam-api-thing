@@ -1,10 +1,15 @@
-<div>
+<a href="/#/signout">Sign Out</a>
+
+<div class="col-md-9">
     <h1>Games</h1>
     
-    <ul>
-        <li ng-repeat="game in games">
-            <h2>{{game.name}}</h2>
-            <img ng-src="http://media.steampowered.com/steamcommunity/public/images/apps/{{game.id}}/{{game.logo}}.jpg" alt= "" />
-        </li>
-    </ul>
+    <div class="games">
+        <game ng-repeat="game in games | filter:activeOffers | orderBy:playTime"
+            data-info="game"
+        ></game>
+        
+        <game ng-repeat="game in games | filter:noActiveOffers | orderBy:playTime"
+            data-info="game"
+        ></game>
+    </div>
 </div>
