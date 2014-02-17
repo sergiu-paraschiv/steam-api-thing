@@ -27,6 +27,9 @@ bower install
 
 to get dependecies.
 
+You'll also need to set up a web server (with PHP > 5) at `http://localhost:9002/`
+with it's root in `services/`.
+
 Run
 `grunt build`
 to build the project. Output is in `build/`.
