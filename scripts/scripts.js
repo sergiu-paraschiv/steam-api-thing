@@ -392,8 +392,9 @@
 
     sat.SteamAPIThing.factory('AuthorizationService', [
         '$window',
+        'AccountService',
         
-        function($window) {
+        function($window, accountService) {
             var config = sat.Config.SteamAPI.authorization;
             
             function authorizationURL() {
@@ -415,6 +416,22 @@
                 var url = authorizationURL();
                 
                 $window.location = url;
+            }
+            
+            function mock1() {
+                accountService.setAccountId(76561198045568246);
+                
+                storageService.put('account', accountService.getAccount());
+                
+                $location.url('/games').replace();
+            }
+            
+            function mock2() {
+                accountService.setAccountId(76561198045568246);
+                
+                storageService.put('account', accountService.getAccount());
+                
+                $location.url('/games').replace();
             }
             
             return {
@@ -751,6 +768,10 @@
             $scope.authorize = function() {
                 authorizationService.authorize();
             };
+            
+            $scope.mock = function() {
+                authorizationService.mock();
+            };
         }
     ]);
         
@@ -776,10 +797,11 @@
             
             if(identity) {
                 accountService.setAccountIdFromIdentity(identity);
+                console.log(identity);
                 
-                storageService.put('account', accountService.getAccount());
+                // storageService.put('account', accountService.getAccount());
                 
-                $location.url('/games').replace();
+                // $location.url('/games').replace();
             }
             else {
                 //TODO: handle Steam OpenID authorization error
@@ -988,7 +1010,11 @@ angular.module('SteamAPIThing').run(['$templateCache', function($templateCache) 
 
 
   $templateCache.put('views/authorize.html',
-    "<a id=\"authorize\" href=\"\" ng-click=\"authorize()\"><img src=\"images/authorize.steam.png\" alt =\"\" /></a>"
+    "<a id=\"authorize\" href=\"\" ng-click=\"authorize()\"><img src=\"images/authorize.steam.png\" alt =\"\" /></a>\r" +
+    "\n" +
+    "<a href=\"\" ng-click=\"mock1()\">Use fake account #1</a>\r" +
+    "\n" +
+    "<a href=\"\" ng-click=\"mock2()\">Use fake account #2</a>"
   );
 
 
