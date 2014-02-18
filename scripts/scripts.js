@@ -135,7 +135,6 @@
             // $locationProvider.html5Mode(true);
             
             $httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-            // delete $httpProvider.defaults.headers.common['X-Requested-With'];
         }
     ]);
 
@@ -918,7 +917,7 @@ angular.module('SteamAPIThing').run(['$templateCache', function($templateCache) 
   'use strict';
 
   $templateCache.put('views/addoffer.html',
-    "<a href=\"/#/signout\">Sign Out</a>\r" +
+    "<a href=\"#/signout\">Sign Out</a>\r" +
     "\n" +
     "\r" +
     "\n" +
@@ -1022,9 +1021,9 @@ angular.module('SteamAPIThing').run(['$templateCache', function($templateCache) 
     "\n" +
     "            <div>Time played: {{game.playTime / 60 | number:0}}h</div>\r" +
     "\n" +
-    "            <a ng-show=\"offers.length > 0\" href=\"/#/game/{{game.id}}/offers\"><em>{{offers.length}}</em> active offers</a>\r" +
+    "            <a ng-show=\"offers.length > 0\" href=\"#/game/{{game.id}}/offers\"><em>{{offers.length}}</em> active offers</a>\r" +
     "\n" +
-    "            <a href=\"/#/add-offer/{{game.id}}\">Add lease offer</a>\r" +
+    "            <a href=\"#/add-offer/{{game.id}}\">Add lease offer</a>\r" +
     "\n" +
     "        </div>\r" +
     "\n" +
@@ -1046,7 +1045,7 @@ angular.module('SteamAPIThing').run(['$templateCache', function($templateCache) 
 
 
   $templateCache.put('views/games.html',
-    "<a href=\"/#/signout\">Sign Out</a>\r" +
+    "<a href=\"#/signout\">Sign Out</a>\r" +
     "\n" +
     "\r" +
     "\n" +
@@ -1079,7 +1078,7 @@ angular.module('SteamAPIThing').run(['$templateCache', function($templateCache) 
 
 
   $templateCache.put('views/offers.html',
-    "<a href=\"/#/signout\">Sign Out</a>\r" +
+    "<a href=\"#/signout\">Sign Out</a>\r" +
     "\n" +
     "\r" +
     "\n" +
