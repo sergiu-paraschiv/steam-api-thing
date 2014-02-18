@@ -917,7 +917,7 @@
 angular.module('SteamAPIThing').run(['$templateCache', function($templateCache) {
   'use strict';
 
-  $templateCache.put('app/views/addoffer.html',
+  $templateCache.put('views/addoffer.html',
     "<a href=\"/#/signout\">Sign Out</a>\r" +
     "\n" +
     "\r" +
@@ -988,12 +988,12 @@ angular.module('SteamAPIThing').run(['$templateCache', function($templateCache) 
   );
 
 
-  $templateCache.put('app/views/authorize.html',
+  $templateCache.put('views/authorize.html',
     "<a id=\"authorize\" href=\"\" ng-click=\"authorize()\"><img src=\"images/authorize.steam.png\" alt =\"\" /></a>"
   );
 
 
-  $templateCache.put('app/views/directives/game.html',
+  $templateCache.put('views/directives/game.html',
     "<div class=\"game metro-tile\" ng-click=\"flip()\">\r" +
     "\n" +
     "    {{rgb}}\r" +
@@ -1034,7 +1034,7 @@ angular.module('SteamAPIThing').run(['$templateCache', function($templateCache) 
   );
 
 
-  $templateCache.put('app/views/directives/offer.html',
+  $templateCache.put('views/directives/offer.html',
     "<div class=\"offer\">\r" +
     "\n" +
     "    <div>{{offer.description}} - ${{offer.amount}}</div>\r" +
@@ -1045,7 +1045,7 @@ angular.module('SteamAPIThing').run(['$templateCache', function($templateCache) 
   );
 
 
-  $templateCache.put('app/views/games.html',
+  $templateCache.put('views/games.html',
     "<a href=\"/#/signout\">Sign Out</a>\r" +
     "\n" +
     "\r" +
@@ -1078,7 +1078,7 @@ angular.module('SteamAPIThing').run(['$templateCache', function($templateCache) 
   );
 
 
-  $templateCache.put('app/views/offers.html',
+  $templateCache.put('views/offers.html',
     "<a href=\"/#/signout\">Sign Out</a>\r" +
     "\n" +
     "\r" +
