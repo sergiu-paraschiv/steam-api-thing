@@ -427,7 +427,7 @@
             }
             
             function mock2() {
-                accountService.setAccountId(76561198045568246);
+                accountService.setAccountId(76561198009046557);
                 
                 storageService.put('account', accountService.getAccount());
                 
@@ -435,7 +435,9 @@
             }
             
             return {
-                authorize: authorize
+                authorize: authorize,
+                mock1: mock1,
+                mock2: mock2
             };
         }
     ]);
@@ -769,8 +771,12 @@
                 authorizationService.authorize();
             };
             
-            $scope.mock = function() {
-                authorizationService.mock();
+            $scope.mock1 = function() {
+                authorizationService.mock1();
+            };
+            
+            $scope.mock2 = function() {
+                authorizationService.mock2();
             };
         }
     ]);
@@ -797,11 +803,10 @@
             
             if(identity) {
                 accountService.setAccountIdFromIdentity(identity);
-                console.log(identity);
                 
-                // storageService.put('account', accountService.getAccount());
+                storageService.put('account', accountService.getAccount());
                 
-                // $location.url('/games').replace();
+                $location.url('/games').replace();
             }
             else {
                 //TODO: handle Steam OpenID authorization error
