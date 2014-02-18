@@ -421,7 +421,7 @@
             }
             
             function mock1() {
-                accountService.setAccountId(76561198045568246);
+                accountService.setAccountId('76561198045568246');
                 
                 storageService.put('account', accountService.getAccount());
                 
@@ -429,7 +429,7 @@
             }
             
             function mock2() {
-                accountService.setAccountId(76561198009046557);
+                accountService.setAccountId('76561198009046557');
                 
                 storageService.put('account', accountService.getAccount());
                 
