@@ -392,9 +392,11 @@
 
     sat.SteamAPIThing.factory('AuthorizationService', [
         '$window',
+        '$location',
         'AccountService',
+        'StorageService',
         
-        function($window, accountService) {
+        function($window, $location, accountService, storageService) {
             var config = sat.Config.SteamAPI.authorization;
             
             function authorizationURL() {
